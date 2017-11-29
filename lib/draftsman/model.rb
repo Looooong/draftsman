@@ -81,6 +81,10 @@ module Draftsman
 
         draftsman_options[:meta] ||= {}
 
+        draftsman_options[:save_options] ||= {}
+        # Set validate to false by default if not specified in save_options
+        draftsman_options[:save_options][:validate] = draftsman_options[:save_options].fetch(:validate, false)
+
         attr_accessor :draftsman_event
 
         class_attribute :published_at_attribute_name
